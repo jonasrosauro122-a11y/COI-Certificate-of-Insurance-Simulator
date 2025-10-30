@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login | COI Simulator</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>COI Login Portal</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <h1>Login to COI Simulator</h1>
+    <h1>COI Login Portal</h1>
     <form id="loginForm">
       <label>First Name</label>
       <input type="text" id="firstName" placeholder="Enter first name" required>
@@ -23,29 +23,6 @@
     </form>
   </div>
 
-  <script>
-    document.getElementById('loginForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      const first = document.getElementById('firstName').value.trim();
-      const last = document.getElementById('lastName').value.trim();
-      const pass = document.getElementById('password').value.trim();
-
-      if (!first || !last || !pass) {
-        alert("Please fill in all fields.");
-        return;
-      }
-
-      // Simple dummy check (trainer purpose only)
-      if (pass === "Lavaautomation2025!") {
-        // Store user info temporarily
-        localStorage.setItem('firstName', first);
-        localStorage.setItem('lastName', last);
-        window.location.href = "coi.html"; // route to COI page
-      } else {
-        alert("Incorrect password. Try 'trainer123'.");
-      }
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
