@@ -1,4 +1,4 @@
-document.getElementById('generateBtn').addEventListener('click', function() {
+document.getElementById('generateBtn').addEventListener('click', async function() {
   const name = document.getElementById('insuredName').value;
   const policy = document.getElementById('policyNumber').value;
   const eff = document.getElementById('effectiveDate').value;
@@ -10,23 +10,27 @@ document.getElementById('generateBtn').addEventListener('click', function() {
     return;
   }
 
-  const preview = `
-    <strong>Insured:</strong> ${name}<br>
-    <strong>Policy No:</strong> ${policy}<br>
-    <strong>Effective:</strong> ${eff}<br>
-    <strong>Expiration:</strong> ${exp}<br>
-    <strong>Coverage:</strong> ${coverage}<br><br>
-    <em>This is a simulated Certificate of Insurance (COI).</em>
-  `;
+  const formUrl = 'acord25.pdf';
+  const existingPdfBytes = await fetch(formUrl).then(res => res.arrayBuffer());
 
-  document.getElementById('coiPreview').innerHTML = preview;
-  document.getElementById('downloadBtn').style.display = 'inline-block';
-});
+  const { PDFDocument, rgb } = PDFLib;
+  const pdfDoc = await PDFDocument.load(existingPdfBytes);
+  const pages = pdfDoc.getPages();
+  const firstPage = pages[0];
 
-// Optional: Simple PDF download using jsPDF
-document.getElementById('downloadBtn').addEventListener('click', () => {
-  const { jsPDF } = window.jspdf;
-  const pdf = new jsPDF();
-  pdf.text(document.getElementById('coiPreview').innerText, 10, 10);
-  pdf.save("COI-Simulator.pdf");
+  // Adjust x/y to match where you want text to appear
+  firstPage.drawText(name, { x: 130, y: 690, size: 10 });
+  firstPage.drawText(policy, { x: 350, y: 620, size: 10 });
+  firstPage.drawText(eff, { x: 110, y: 580, size: 10 });
+  firstPage.drawText(exp, { x: 240, y: 580, size: 10 });
+  firstPage.drawText(coverage, { x: 100, y: 540, size: 10 });
+
+  const pdfBytes = await pdfDoc.save();
+  const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'Generated-COI.pdf';
+  a.click();
 });
