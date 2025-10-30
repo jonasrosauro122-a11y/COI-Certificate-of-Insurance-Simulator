@@ -1,15 +1,14 @@
 body {
   font-family: Arial, sans-serif;
-  background: #f6f6f6;
-  margin: 0;
-  padding: 20px;
+  background: #f9f9f9;
+  padding: 40px;
 }
 
 .container {
-  max-width: 600px;
   background: #fff;
-  margin: 0 auto;
-  padding: 20px;
+  padding: 30px;
+  max-width: 400px;
+  margin: auto;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
@@ -19,44 +18,32 @@ h1 {
   margin-bottom: 20px;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-}
-
-label {
+form label {
+  display: block;
   margin-top: 10px;
+  font-weight: bold;
 }
 
-input {
+form input {
+  width: 100%;
   padding: 8px;
+  margin-top: 5px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
 
 button {
   margin-top: 20px;
+  width: 100%;
   padding: 10px;
-  background: #007bff;
-  color: white;
   border: none;
-  border-radius: 5px;
+  background: #4CAF50;
+  color: white;
+  font-size: 16px;
   cursor: pointer;
+  border-radius: 5px;
 }
 
 button:hover {
-  background: #0056b3;
-}
-
-#output {
-  margin-top: 30px;
-  text-align: center;
-}
-
-#coiPreview {
-  border: 1px solid #ccc;
-  background: #fafafa;
-  padding: 15px;
-  border-radius: 8px;
-  text-align: left;
+  background: #45a049;
 }
