@@ -1,1 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COI Simulator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>COI Simulator (Real ACORD Form)</h1>
+    <p id="welcomeUser"></p>
 
+    <form id="coiForm">
+      <label>Insured Name</label>
+      <input type="text" id="insuredName" placeholder="Enter insured name" required>
+
+      <label>Policy Number</label>
+      <input type="text" id="policyNumber" placeholder="Enter policy number" required>
+
+      <label>Effective Date</label>
+      <input type="date" id="effectiveDate" required>
+
+      <label>Expiration Date</label>
+      <input type="date" id="expirationDate" required>
+
+      <label>Coverage Type</label>
+      <input type="text" id="coverageType" placeholder="e.g. General Liability" required>
+
+      <button type="button" id="generateBtn">Generate COI PDF</button>
+    </form>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
