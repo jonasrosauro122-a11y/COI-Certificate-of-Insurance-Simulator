@@ -8,7 +8,7 @@
 </head>
 <body>
   <div class="container">
-    <h1>COI Simulator</h1>
+    <h1>COI Simulator (Real ACORD Form)</h1>
     <form id="coiForm">
       <label>Insured Name</label>
       <input type="text" id="insuredName" placeholder="Enter insured name" required>
@@ -25,18 +25,11 @@
       <label>Coverage Type</label>
       <input type="text" id="coverageType" placeholder="e.g. General Liability" required>
 
-      <button type="button" id="generateBtn">Generate COI</button>
+      <button type="button" id="generateBtn">Generate Real COI PDF</button>
     </form>
-
-    <div id="output">
-      <h2>Certificate of Insurance (Preview)</h2>
-      <div id="coiPreview"></div>
-      <button id="downloadBtn" style="display:none;">Download COI (PDF)</button>
-    </div>
   </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script src="script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
-
